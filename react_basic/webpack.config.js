@@ -1,27 +1,25 @@
-const webpack=require("webpack");
-const path=require("path");
-const DEST_DIR=path.resolve(__dirname,'dist');
-const SRC_DIR=path.resolve(__dirname,'src');
+const webpack = require("webpack");
+const path = require("path");
+const DEST_DIR = path.resolve(__dirname, 'dist');
+const SRC_DIR = path.resolve(__dirname, 'src');
 
-module.exports={
-    entry: SRC_DIR + '/app/test.js',
+module.exports = {
+    entry: SRC_DIR + '/app/test.jsx',
     output: {
-        path:DEST_DIR + "/app",
-        filename:"bundle.js",
-        publicPath:'/app/'
+        path: DEST_DIR + "/app",
+        filename: "bundle.js",
+        publicPath: '/app/'
     },
-    module:{
-        rules:[
-            {
-                test: /\.js$/,
-                include:SRC_DIR,
-                loader:'babel-loader',
-                exclude: /node_modules/,
-                query:{
-                    presets:['es2015','react','stage-2']
-                }
+    module: {
+        rules: [{
+            test: /\.jsx$/,
+            include: SRC_DIR,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: {
+                presets: ['es2015', 'react', 'stage-2']
             }
-        ]
+        }]
     }
 }
 
