@@ -2,11 +2,15 @@ const webpack = require("webpack");
 const path = require("path");
 const DEST_DIR = path.resolve(__dirname, 'dist');
 const SRC_DIR = path.resolve(__dirname, 'src');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+//const HTMLWebpackPlugin = require('html-webpack-plugin');
+//const WebpackMd5Hash = require('webpack-md5-hash');
 
 module.exports = {
-    entry: SRC_DIR + '/app/test.jsx',
+    entry: { main: SRC_DIR + '/app/test.jsx' },
     output: {
         path: DEST_DIR + "/app",
+        //filename: "[name].[hash].js",
         filename: "bundle.js",
         publicPath: '/app/'
     },
@@ -19,37 +23,25 @@ module.exports = {
             query: {
                 presets: ['es2015', 'react', 'stage-2']
             }
+        }, {
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: ['css-loader']
+            })
         }]
-    }
+    },
+    plugins: [
+        new ExtractTextPlugin({ filename: 'bundle.css', disable: false, allChunks: true })
+        //new ExtractTextPlugin({ filename: 'style.[hash].css', disable: false, allChunks: true }),
+        // new HTMLWebpackPlugin({
+        //     inject: false,
+        //     hash: true,
+        //     title: 'My Awesome application',
+        //     myPageHeader: 'Hello World',
+        //     template: './src/index.html',
+        //     filename: 'index.html'
+        // }),
+        // new WebpackMd5Hash()
+    ]
 }
-
-// module.exports={
-//     devtool: 'inline-source-map',
-//     entry: [
-//         'webpack-dev-server/client?http://127.0.0.1:8080/',
-//         'webpack/hot/only-dev-server',
-//         './src'
-//     ],
-//     output:{
-//         path: path.join(__dirname, 'public'),
-//         filename: 'bundle.js',
-//     },
-//     resolve:{
-//         modules:['node_modules','src'],
-//         extensions:['.js','.jsx']
-//     },
-//     module:{
-//         rules:[
-//             {
-//                 test:/\.jsx?$/,
-//                 exclude: /node_modules/,
-//                 loaders:['babel-loader?presets[]=react,presets[]=es2015']
-//             }
-//         ]
-//     },
-//     plugins:[
-//         new webpack.HotModuleReplacementPlugin(),
-//         new webpack.NoEmitOnErrorsPlugin()
-//     ]
-
-// }

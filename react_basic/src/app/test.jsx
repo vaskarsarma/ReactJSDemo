@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '../style/test.css';
 
 class Mycomponent extends React.Component {
     render() {
@@ -7,7 +8,7 @@ class Mycomponent extends React.Component {
             <div className = "container" >
             <div className = "row" >
             <div className = "col-xs-10 col-xs-offset-1" >
-            <h1> Testing my first reactjs application!!!Vaskar Sarma </h1> 
+            <h1> Testing my first reactjs application!!!Vaskar</h1> 
             </div> </div> </div>
         )
     }
