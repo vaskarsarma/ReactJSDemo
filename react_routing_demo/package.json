@@ -4,7 +4,7 @@
     "main": "index.js",
     "scripts": {
         "start": "npm run build",
-        "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --mode development --content-base src/ --inline --hot --history-api-fallback --port 5000 --watch ",
+        "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --mode development --content-base src/ --inline --hot --port 5000 --watch ",
         "build:prod": "webpack -p && copy src\\index.html dist\\index.html"
     },
     "author": "Vaskar Sarma",

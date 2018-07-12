@@ -1,12 +1,15 @@
-import React from "react";
-import {Header} from "./Header";
-import {Main} from "./Main";
+import React from 'react'
+import {Header} from './Header'
+import { Main } from './Main'
 
-export const Root =() => {
-    return(
-       <div className = "container" >
-            <Header/>
-            <Main/>
-        </div>
-        );
-    }
+const Root =()=> {
+    return (
+      <div>
+        vaskar
+         <Header />
+         <Main /> 
+    </div>
+    );
+}
+
+export default Root;
