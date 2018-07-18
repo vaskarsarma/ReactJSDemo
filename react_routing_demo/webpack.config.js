@@ -31,6 +31,9 @@ module.exports = {
             })
         }]
     },
+    devServer: {
+        historyApiFallback: true,
+      },
     plugins: [
         new ExtractTextPlugin({ filename: 'bundle.css', disable: false, allChunks: true })
         //new ExtractTextPlugin({ filename: 'style.[hash].css', disable: false, allChunks: true }),

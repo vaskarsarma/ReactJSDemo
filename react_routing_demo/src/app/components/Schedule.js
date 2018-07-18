@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Schedule = () => (
+export const Schedule = () => (
   <div>
     <ul>
       <li>6/5 @ Evergreens</li>
@@ -10,4 +10,4 @@ const Schedule = () => (
   </div>
 )
 
-export default Schedule
+//export default Schedule
